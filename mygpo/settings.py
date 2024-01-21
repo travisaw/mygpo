@@ -378,6 +378,15 @@ LOCALE_PATHS = [os.path.abspath(os.path.join(BASE_DIR, "locale"))]
 
 INTERNAL_IPS = os.getenv("INTERNAL_IPS", "").split()
 
+EMAIL_HOST = os.getenv("APP_EMAIL_HOST", "smtp.office365.com")
+EMAIL_PORT = os.getenv("APP_EMAIL_PORT", 587)
+EMAIL_HOST_USER = os.getenv("APP_EMAIL_HOST_USER")
+SERVER_EMAIL = EMAIL_HOST_USER
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+EMAIL_HOST_PASSWORD = os.getenv("APP_EMAIL_HOST_PASSWORD")
+EMAIL_USE_TLS = os.getenv("APP_EMAIL_USE_TLS", True)
+EMAIL_TIMEOUT = os.getenv("APP_EMAIL_TIMEOUT", 60)
+
 EMAIL_BACKEND = os.getenv(
     "EMAIL_BACKEND", "django.core.mail.backends.smtp.EmailBackend"
 )
